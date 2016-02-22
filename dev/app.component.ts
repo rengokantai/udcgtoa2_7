@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import {RPipe} from "./r.pipe";
 //pass [myname] from parent component to child component.child component receive data from [input]
 @Component({
     selector: 'my-app',
@@ -24,10 +25,17 @@ import {Component} from 'angular2/core';
     currency:{{1.0 * numberpipe.value |currency:currency.value:currencyshort.checked:'1.2-2'}}
     <input type="checkbox" #currencyshort checked (change)="0">short
     </section>
-    <section class="pipe">
+    <section class="main">
     multiple pipes
     <input type="text" #multipipe (keyup)="0">
-    </section>`
+    {{multipipe.value|slice:1-3|uppercase}}
+    </section>
+    <section class="main">
+    custompipe
+    <input type="text" #custompipe (keyup)="0">
+    {{custompipe.value|mr}}
+    </section>`,
+    pipes:[RPipe]
 
 })
 export class AppComponent {
