@@ -21,7 +21,7 @@ import {Component} from 'angular2/core';
     <input type="text" #numberpipe (keyup)="0">
     <input type="text" #currency value="EUR" (change)="0">
     decimal:{{1.0 * numberpipe.value |number:'1.1-2'}}
-    currency:{{1.0 * numberpipe.value |currency:currency.value}}
+    currency:{{1.0 * numberpipe.value |currency:currency.value:currencyshort.checked:'1.2-2'}}
     <input type="checkbox" #currencyshort checked (change)="0">short
     </section>
     <section class="pipe">
