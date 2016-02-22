@@ -34,10 +34,16 @@ import {RPipe} from "./r.pipe";
     custompipe
     <input type="text" #custompipe (keyup)="0">
     {{custompipe.value|mr}}
+    </section>
+    <section class="main">
+    {{state|async}}
     </section>`,
     pipes:[RPipe]
 
 })
 export class AppComponent {
 today=new Date();
+    state=new Promise((resolve,reject)=>{
+        setTimeout(()=>resolve('resolve'),1000);
+    })
 }
